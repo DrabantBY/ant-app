@@ -1,4 +1,4 @@
-export namespace TableTypes {
+export namespace DataTableType {
 	export interface Column {
 		title: string;
 		dataIndex: string;
@@ -9,6 +9,6 @@ export namespace TableTypes {
 		key: number;
 		name: string;
 		date: string;
-		age: number;
+		salary: number;
 	}
 }
