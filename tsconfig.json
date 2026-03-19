@@ -17,6 +17,7 @@
 		"paths": {
 			"@types": ["types/index.ts"],
 			"@store": ["store/index.ts"],
+			"@hooks": ["hooks/index.ts"],
 			"@components": ["components/index.ts"]
 		}
 	},

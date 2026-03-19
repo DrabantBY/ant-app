@@ -1,19 +1,12 @@
-import type { ActionDispatch, ReactNode } from "react";
-import { createContext, useReducer } from "react";
-import type { DataTableAction } from "./actions.ts";
-import { type DataTableState, dataTableInitialState } from "./initialState";
+import type { ReactNode } from "react";
+import { useReducer } from "react";
+import { DataTableDispatchContext, DataTableStateContext } from "./context";
+import { dataTableInitialState } from "./initialState";
 import { dataTableReducer } from "./reducer";
 
 interface DataTableProviderProps {
 	children: ReactNode;
 }
-
-export const DataTableSourceContext = createContext<DataTableState>(
-	dataTableInitialState,
-);
-export const DataTableSetterContext = createContext<
-	ActionDispatch<[DataTableAction]>
->(() => {});
 
 export const DataTableStateProvider = ({
 	children,
@@ -21,8 +14,8 @@ export const DataTableStateProvider = ({
 	const [state, dispatch] = useReducer(dataTableReducer, dataTableInitialState);
 
 	return (
-		<DataTableSetterContext value={dispatch}>
-			<DataTableSourceContext value={state}>{children}</DataTableSourceContext>
-		</DataTableSetterContext>
+		<DataTableDispatchContext value={dispatch}>
+			<DataTableStateContext value={state}>{children}</DataTableStateContext>
+		</DataTableDispatchContext>
 	);
 };

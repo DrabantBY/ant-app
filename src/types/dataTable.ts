@@ -1,12 +1,8 @@
-export namespace DataTableType {
-	export interface Column {
-		title: string;
-		dataIndex: string;
-		key: string;
-	}
+import type { Key } from "react";
 
+export namespace DataTableType {
 	export interface Row {
-		key: number;
+		key: Key;
 		name: string;
 		date: string;
 		salary: number;
