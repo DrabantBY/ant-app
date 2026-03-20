@@ -1,1 +1,1 @@
-export * from './dataTable.ts'
+export * from "./dataTable.ts";

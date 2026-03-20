@@ -1,4 +1,5 @@
 import type { DataTableType } from "@types";
+import dayjs from "dayjs";
 
 export interface DataTableState {
 	list: DataTableType.Row[];
@@ -10,21 +11,21 @@ const INITIAL_DATA = [
 	{
 		key: 1,
 		name: "Eugene",
-		date: "1987",
+		date: dayjs("1987-10-16"),
 		salary: 1000,
 	},
 
 	{
 		key: 2,
 		name: "Alex",
-		date: "1990",
+		date: dayjs("1990-03-12"),
 		salary: 1200,
 	},
 
 	{
 		key: 3,
 		name: "Simon",
-		date: "2000",
+		date: dayjs("2000-08-11"),
 		salary: 800,
 	},
 ];
