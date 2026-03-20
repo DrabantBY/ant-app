@@ -16,6 +16,7 @@
 		"noUnusedParameters": true,
 		"paths": {
 			"@types": ["types/index.ts"],
+			"@shared/*": ["shared/*"],
 			"@store": ["store/index.ts"],
 			"@hooks": ["hooks/index.ts"],
 			"@components": ["components/index.ts"]

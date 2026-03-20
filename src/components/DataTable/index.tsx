@@ -1,9 +1,13 @@
-import { DeleteFilled, EditFilled, PlusOutlined } from "@ant-design/icons";
 import type { DataTableType } from "@types";
-import { Button, Space, Table, Tooltip } from "antd";
+import { Flex, Table } from "antd";
 import { useCallback } from "react";
 import { ModalForm } from "../../components";
 import { useDataTableState, useModalFormState } from "../../hooks";
+import {
+	CreateActionBtn,
+	DeleteActionBtn,
+	UpdateActionBtn,
+} from "../../shared/ui";
 
 export const DataTable = () => {
 	const { result, createRow, updateRow, deleteRow } = useDataTableState();
@@ -29,66 +33,57 @@ export const DataTable = () => {
 
 	return (
 		<div className="__container">
-			<Button
-				size="large"
-				color="default"
-				variant="solid"
-				icon={<PlusOutlined />}
-				onClick={openCreateModalForm}
-			>
-				Create Row
-			</Button>
+			<Flex gap="medium" vertical align="flex-end">
+				<CreateActionBtn onClick={openCreateModalForm} />
 
-			<Table dataSource={result} pagination={false}>
-				<Table.Column<DataTableType.Row>
-					title="Name"
-					dataIndex="name"
-					sorter={(a, b) => a.name.localeCompare(b.name)}
-				/>
+				<Table
+					dataSource={result}
+					pagination={false}
+					style={{ alignSelf: "stretch" }}
+				>
+					<Table.Column<DataTableType.Row>
+						title="Name"
+						dataIndex="name"
+						sorter={(a, b) => a.name.localeCompare(b.name)}
+					/>
 
-				<Table.Column<DataTableType.Row>
-					title="Date"
-					dataIndex="date"
-					sorter={(a, b) => a.date.valueOf() - b.date.valueOf()}
-					render={(date) => date.format("YYYY-MM-DD")}
-				/>
+					<Table.Column<DataTableType.Row>
+						title="Date"
+						dataIndex="date"
+						sorter={(a, b) => a.date.valueOf() - b.date.valueOf()}
+						render={(date) => date.format("YYYY-MM-DD")}
+					/>
 
-				<Table.Column<DataTableType.Row>
-					title="Salary"
-					dataIndex="salary"
-					sorter={(a, b) => a.salary - b.salary}
-				/>
+					<Table.Column<DataTableType.Row>
+						title="Salary"
+						dataIndex="salary"
+						sorter={(a, b) => a.salary - b.salary}
+					/>
 
-				<Table.Column<DataTableType.Row>
-					title="Actions"
-					key="actions"
-					render={(_, row) => (
-						<Space>
-							<Tooltip title="update row">
-								<Button
-									size="large"
-									shape="circle"
-									icon={<EditFilled />}
-									onClick={() => openUpdateModalForm(row)}
+					<Table.Column<DataTableType.Row>
+						title="Actions"
+						key="actions"
+						render={(_, row) => (
+							<Flex gap="small">
+								<UpdateActionBtn<DataTableType.Row>
+									action={openUpdateModalForm}
+									value={row}
 								/>
-							</Tooltip>
 
-							<Tooltip title="delete row">
-								<Button
-									size="large"
-									shape="circle"
-									icon={<DeleteFilled />}
-									onClick={() => deleteRow(row)}
+								<DeleteActionBtn<DataTableType.Row>
+									action={deleteRow}
+									value={row}
 								/>
-							</Tooltip>
-						</Space>
-					)}
-				/>
-			</Table>
+							</Flex>
+						)}
+					/>
+				</Table>
+			</Flex>
+
 			<ModalForm
 				onCancel={closeModalForm}
-				{...modalFormData}
 				onFinish={submitModalForm}
+				{...modalFormData}
 			/>
 		</div>
 	);
