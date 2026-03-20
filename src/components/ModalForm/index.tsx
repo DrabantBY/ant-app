@@ -7,7 +7,6 @@ interface ModalFormProps {
 	open: boolean;
 	initialValues?: DataTableType.Row;
 	onCancel: () => void;
-	onOk: () => void;
 	onFinish: (value: DataTableType.Row) => void;
 }
 
@@ -33,6 +32,9 @@ export const ModalForm = ({
 				initialValues={initialValues}
 				onFinish={onFinish}
 			>
+				<Form.Item name="key" hidden>
+					<Input />
+				</Form.Item>
 				<Form.Item
 					label="Name"
 					name="name"
@@ -54,7 +56,7 @@ export const ModalForm = ({
 					<Form.Item
 						label="Salary"
 						name="salary"
-						rules={[{ required: true, message: "date is required" }]}
+						rules={[{ required: true, message: "salary is required" }]}
 						style={{ flexGrow: 1 }}
 					>
 						<InputNumber style={{ width: "100%" }} min={0} />

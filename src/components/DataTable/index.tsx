@@ -1,6 +1,7 @@
 import { DeleteFilled, EditFilled, PlusOutlined } from "@ant-design/icons";
 import type { DataTableType } from "@types";
 import { Button, Space, Table, Tooltip } from "antd";
+import { useCallback } from "react";
 import { ModalForm } from "../../components";
 import { useDataTableState, useModalFormState } from "../../hooks";
 
@@ -14,7 +15,17 @@ export const DataTable = () => {
 		openUpdateModalForm,
 	} = useModalFormState();
 
-	const submitModalForm = create ? createRow : updateRow;
+	const submitModalForm = useCallback(
+		(row: DataTableType.Row) => {
+			if (create) {
+				createRow({ ...row, key: Date.now() });
+			} else {
+				updateRow(row);
+			}
+			closeModalForm();
+		},
+		[create, createRow, updateRow, closeModalForm],
+	);
 
 	return (
 		<div className="__container">
@@ -76,7 +87,6 @@ export const DataTable = () => {
 			</Table>
 			<ModalForm
 				onCancel={closeModalForm}
-				onOk={closeModalForm}
 				{...modalFormData}
 				onFinish={submitModalForm}
 			/>

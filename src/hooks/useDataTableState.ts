@@ -12,7 +12,6 @@ export const useDataTableState = () => {
 
 	const createRow = useCallback(
 		(payload: DataTableType.Row) => {
-			payload.key = Date.now();
 			dispatch({ type: DATA_TABLE_ACTION_TYPE.CREATE, payload });
 		},
 		[dispatch],
