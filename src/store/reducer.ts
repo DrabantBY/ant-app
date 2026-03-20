@@ -1,4 +1,5 @@
 import type { DataTableType } from "@types";
+import dayjs from "dayjs";
 import { DATA_TABLE_ACTION_TYPE, type DataTableAction } from "./actions";
 import type { DataTableState } from "./initialState";
 
@@ -8,7 +9,8 @@ const filterRowData = (row: DataTableType.Row, search: string) =>
 		([key, val]) =>
 			key !== "key" &&
 			((typeof val === "string" && val.includes(search)) ||
-				(typeof val === "number" && val === Number(search))),
+				(typeof val === "number" && `${val}`.includes(search)) ||
+				(dayjs.isDayjs(val) && val.format("YYYY-MM-DD").includes(search))),
 	);
 
 export const dataTableReducer = (
