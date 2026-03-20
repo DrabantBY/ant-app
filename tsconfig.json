@@ -10,7 +10,7 @@
 		"resolveJsonModule": true,
 		"moduleResolution": "bundler",
 		"allowImportingTsExtensions": true,
-		"baseUrl": "./src",
+		"baseUrl": "src",
 		"strict": true,
 		"noUnusedLocals": true,
 		"noUnusedParameters": true,

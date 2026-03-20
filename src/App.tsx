@@ -1,4 +1,4 @@
-import { DataTable, SearchBar } from "./components";
+import { DataTable, ModalForm, SearchBar } from "./components";
 
 export const App = () => {
 	return (
@@ -9,6 +9,7 @@ export const App = () => {
 			<hr />
 			<main>
 				<DataTable />
+				<ModalForm />
 			</main>
 		</div>
 	);
