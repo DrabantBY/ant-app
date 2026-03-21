@@ -1,7 +1,7 @@
+import { DataTableStateProvider } from "@store";
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { App } from "./App.tsx";
-import { DataTableStateProvider } from "./store";
 import "antd/dist/reset.css";
 import "./index.css";
 

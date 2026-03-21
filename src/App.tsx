@@ -1,4 +1,4 @@
-import { DataTable, SearchBar } from "./components";
+import { DataTable, SearchBar } from "@components";
 
 export const App = () => {
 	return (

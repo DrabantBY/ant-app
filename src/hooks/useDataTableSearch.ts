@@ -1,3 +1,4 @@
+import { DATA_TABLE_ACTION_TYPE, DataTableDispatchContext } from "@store";
 import { debounce } from "lodash";
 import {
 	type ChangeEventHandler,
@@ -5,7 +6,6 @@ import {
 	useContext,
 	useMemo,
 } from "react";
-import { DATA_TABLE_ACTION_TYPE, DataTableDispatchContext } from "../store";
 
 export const useDataTableSearch = () => {
 	const dispatch = useContext(DataTableDispatchContext);

@@ -1,6 +1,6 @@
 import { SearchOutlined } from "@ant-design/icons";
+import { useDataTableSearch } from "@hooks";
 import { Input, Space } from "antd";
-import { useDataTableSearch } from "../../hooks";
 
 export const SearchBar = () => {
 	const { searchRow, clearSearch } = useDataTableSearch();

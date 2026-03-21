@@ -1,3 +1,4 @@
+import { resolve } from "node:path";
 import { defineConfig } from "@rspack/cli";
 import type { SwcLoaderOptions } from "@rspack/core";
 import { rspack } from "@rspack/core";
@@ -13,6 +14,14 @@ export default defineConfig({
 	},
 	resolve: {
 		extensions: ["...", ".ts", ".tsx", ".jsx"],
+		tsConfig: resolve(import.meta.dirname, "./tsconfig.json"),
+		alias: {
+			"@types": resolve(import.meta.dirname, "./src/types/index.ts"),
+			"@shared": resolve(import.meta.dirname, "./src/shared/index.ts"),
+			"@store": resolve(import.meta.dirname, "./src/store/index.ts"),
+			"@hooks": resolve(import.meta.dirname, "./src/hooks/index.ts"),
+			"@components": resolve(import.meta.dirname, "./src/components/index.ts"),
+		},
 	},
 	module: {
 		rules: [

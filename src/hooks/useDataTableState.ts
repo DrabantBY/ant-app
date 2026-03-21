@@ -1,10 +1,10 @@
-import type { DataTableType } from "@types";
-import { useCallback, useContext } from "react";
 import {
 	DATA_TABLE_ACTION_TYPE,
 	DataTableDispatchContext,
 	DataTableStateContext,
-} from "../store";
+} from "@store";
+import type { DataTableType } from "@types";
+import { useCallback, useContext } from "react";
 
 export const useDataTableState = () => {
 	const { result } = useContext(DataTableStateContext);

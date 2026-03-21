@@ -1,13 +1,9 @@
+import { ModalForm } from "@components";
+import { useDataTableState, useModalFormState } from "@hooks";
+import { CreateActionBtn, DeleteActionBtn, UpdateActionBtn } from "@shared";
 import type { DataTableType } from "@types";
 import { Flex, Table } from "antd";
 import { useCallback } from "react";
-import { ModalForm } from "../../components";
-import { useDataTableState, useModalFormState } from "../../hooks";
-import {
-	CreateActionBtn,
-	DeleteActionBtn,
-	UpdateActionBtn,
-} from "../../shared/ui";
 
 export const DataTable = () => {
 	const { result, createRow, updateRow, deleteRow } = useDataTableState();

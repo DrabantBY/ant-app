@@ -14,9 +14,10 @@
 		"strict": true,
 		"noUnusedLocals": true,
 		"noUnusedParameters": true,
+		"types": ["@rspack/core/module"],
 		"paths": {
 			"@types": ["types/index.ts"],
-			"@shared/*": ["shared/*"],
+			"@shared": ["shared/index.ts"],
 			"@store": ["store/index.ts"],
 			"@hooks": ["hooks/index.ts"],
 			"@components": ["components/index.ts"]
