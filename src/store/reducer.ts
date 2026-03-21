@@ -8,7 +8,8 @@ const filterRowData = (row: DataTableType.Row, search: string) =>
 	Object.entries(row).some(
 		([key, val]) =>
 			key !== "key" &&
-			((typeof val === "string" && val.includes(search)) ||
+			((typeof val === "string" &&
+				val.toLowerCase().includes(search.toLowerCase())) ||
 				(typeof val === "number" && `${val}`.includes(search)) ||
 				(dayjs.isDayjs(val) && val.format("YYYY-MM-DD").includes(search))),
 	);
