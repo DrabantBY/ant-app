@@ -1,0 +1,76 @@
+:root {
+	box-sizing: border-box;
+	scroll-behavior: smooth;
+	user-select: none;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: inherit;
+	padding-block: 0;
+	padding-inline: 0;
+	margin-block: 0;
+	margin-inline: 0;
+}
+
+*::before,
+*::after {
+	font-size: inherit;
+}
+
+html,
+body {
+	block-size: 100%;
+	inline-size: 100%;
+}
+
+#shell {
+	position: relative;
+	min-block-size: 100dvh;
+	display: flex;
+	flex-direction: column;
+
+	& > header {
+		padding-block: 0.5rem;
+	}
+
+	& > hr {
+		margin-block-end: 1rem;
+	}
+
+	& > main {
+		position: relative;
+		flex-grow: 1;
+	}
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-size: inherit;
+	font-weight: inherit;
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+img {
+	display: block;
+}
+
+ul,
+ol {
+	list-style: none;
+}
+
+[class$="__container"] {
+	max-inline-size: 1440px;
+	margin-inline: auto;
+	padding-inline: 1.25rem;
+}
