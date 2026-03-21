@@ -12,6 +12,11 @@ export default defineConfig({
 	entry: {
 		main: "./src/main.tsx",
 	},
+
+	output: {
+		publicPath: isDev ? "/" : "/ant-app/",
+	},
+
 	resolve: {
 		extensions: ["...", ".ts", ".tsx", ".jsx"],
 		tsConfig: resolve(import.meta.dirname, "./tsconfig.json"),

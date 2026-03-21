@@ -1,9 +1,7 @@
 # ant-app
 test task from SetClap
 
-## Rspack project
-
-## Setup
+## Rspack project Setup
 
 Install the dependencies:
 
